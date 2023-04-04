@@ -1,379 +1,119 @@
+import { NgModule } from '@angular/core';
 import { Routes } from '@angular/router';
-import { NgModule } from "@angular/core";
-import { NativeScriptRouterModule } from "nativescript-angular/router";
 
-import { ExamplesListDepth1Component, ExamplesListDepth2Component, ExamplesListDepth3Component } from "./navigation/examples-list/examples-list.component";
-import { OptionsComponent } from "./navigation/options/options.component";
+import { NativeScriptRouterModule } from 'nativescript-angular/router';
+import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
+import { ForgotpasswordComponent } from './component/forgotpassword/forgotpassword.component';
+import { HomeComponent } from './component/home/home.component';
+import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
+import { InstructionsComponent } from './component/instructions/instructions.component';
+import { SubscribeComponent } from './component/subscribe/subscribe.component';
+import { SubscriptiondetailComponent } from './component/subscriptiondetail/subscriptiondetail.component';
+import { CreateleagueComponent } from './component/createleague/createleague.component';
+import { AvailableleagueComponent } from './component/availableleague/availableleague.component';
+import { LeaguedashboardComponent } from './component/leaguedashboard/leaguedashboard.component';
+import { LeaguedashboardhomeComponent } from './component/leaguedashboardhome/leaguedashboardhome.component';
+import { SchedulesComponent } from './component/schedules/schedules.component';
+import { ScoresComponent } from './component/scores/scores.component';
+import { NotesComponent } from './component/notes/notes.component';
+import { ViewplayersComponent } from './component/viewplayers/viewplayers.component';
+import { InvitefriendComponent } from './component/invitefriend/invitefriend.component';
+import { SendemailtoplayerComponent } from './component/sendemailtoplayer/sendemailtoplayer.component';
+import { LeagueinstructionsComponent } from './component/leagueinstructions/leagueinstructions.component';
+import { LeagueorganizerrulesComponent } from './component/leagueorganizerrules/leagueorganizerrules.component';
+import { ViewrulesleagueComponent } from './component/viewrulesleague/viewrulesleague.component';
+import { TheprocessrulesComponent } from './component/theprocessrules/theprocessrules.component';
+import { LogisticsofapprulesComponent } from './component/logisticsofapprules/logisticsofapprules.component';
+import { QuickmenurulesComponent } from './component/quickmenurules/quickmenurules.component';
+import { FaqComponent } from './component/faq/faq.component';
+import { LetsplaydashboardComponent } from './component/letsplaydashboard/letsplaydashboard.component';
+import { LetsplaydashboardhomeComponent } from './component/letsplaydashboardhome/letsplaydashboardhome.component';
+import { MakepickComponent } from './component/makepick/makepick.component';
+import { HeadtoheadComponent } from './component/headtohead/headtohead.component';
+import { LeaderboardComponent } from './component/leaderboard/leaderboard.component';
+import { StatisticsComponent } from './component/statistics/statistics.component';
+import { ViewrulesletsplayComponent } from './component/viewrulesletsplay/viewrulesletsplay.component';
+import { FaqletsplayComponent } from './component/faqletsplay/faqletsplay.component';
+import { ViewnoticeComponent } from './component/viewnotice/viewnotice.component';
+import { AvailableleagueletsplayComponent } from './component/availableleagueletsplay/availableleagueletsplay.component';
+import { JoinleagueComponent } from './component/joinleague/joinleague.component';
+import { HeadtoheadsummaryComponent } from './component/headtoheadsummary/headtoheadsummary.component';
+import { MakepicksummaryComponent } from './component/makepicksummary/makepicksummary.component';
+import { ContactleagueadminComponent } from './component/contactleagueadmin/contactleagueadmin.component';
+import { ContactofficepickempoolComponent } from './component/contactofficepickempool/contactofficepickempool.component';
+import { InvitenewplayerComponent } from './component/invitenewplayer/invitenewplayer.component';
+import { PlayoffComponent } from './component/playoff/playoff.component';
+import { WelcomeComponent } from './component/welcome/welcome.component';
+import { ChatdashboardComponent } from './component/chatdashboard/chatdashboard.component';
+import { ChathomeComponent } from './component/chathome/chathome.component';
+import { NewchatComponent } from './component/newchat/newchat.component';
+import { AddchatComponent } from './component/addchat/addchat.component';
 
-let excludedComponents = [];
-
-let APP_ROUTES: Routes = [
-    { path: "", redirectTo: "examples-depth-1/root/root", pathMatch: 'full' },
-    { path: "examples-depth-1/:parentTitle/:tappedTitle", component: ExamplesListDepth1Component },
-    { path: "examples-depth-2/:parentTitle/:tappedTitle", component: ExamplesListDepth2Component },
-    { path: "examples-depth-3/:parentTitle/:tappedTitle", component: ExamplesListDepth3Component },
-    { path: "options", component: OptionsComponent },
-    {
-        path: "ListViewMultipleTemplatesComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Multiple Item Templates"
-        }
-    },
-    {
-        path: "ListViewGettingStartedComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Getting Started"
-        }
-    },
-    {
-        path: "ListViewGettingStartedHorizontalComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Getting Started Horizontal"
-        }
-    },
-    {
-        path: "ListViewDataOperationsFilteringComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Filtering"
-        }
-    },
-    {
-        path: "ListViewDataOperationsSortingComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Sorting"
-        }
-    },
-    {
-        path: "ListViewDataOperationsGroupingComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Grouping"
-        }
-    },
-    {
-        path: "ListViewDataOperationsGroupingHeaderFooterComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Grouping with header/footer"
-        }
-    },
-    {
-        path: "ListViewDataOperationsGroupingTemplatesComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Grouping with multiple templates"
-        }
-    },
-    {
-        path: "ListviewDataOperationsGroupingCollapsibleComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Collapsible Grouping"
-        }
-    },
-    {
-        path: "ListViewDataOperationsGroupingScrollToComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Grouping with Scroll to Index"
-        }
-    },
-    {
-        path: "ListViewDataOperationsMultipleComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Multiple operations"
-        }
-    },
-    {
-        path: "ListViewDataOperationsMultipleWithSwipeComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "With Swipe"
-        }
-    },
-    {
-        path: "ListViewHeaderFooterComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Auto height"
-        }
-    },
-    {
-        path: "ListViewBigFooterComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Big footer"
-        }
-    },
-    {
-        path: "ListViewBigHeaderComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Big header"
-        }
-    },
-    {
-        path: "ListviewChangeSizeAtRuntimeComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Change at runtime"
-        }
-    },
-    {
-        path: "ListViewItemReorderComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Item Reorder"
-        }
-    },
-    {
-        path: "ListViewItemSelectionComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Single Selection"
-        }
-    },
-    {
-        path: "ListViewSelectionStatesComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Selection States"
-        }
-    },
-    {
-        path: "ListViewPullToRefreshComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Pull to Refresh"
-        }
-    },
-    {
-        path: "ListViewPullToRefreshCustomizeComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Customize"
-        }
-    },
-    {
-        path: "ListViewItemLayoutsGridComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Grid with item height"
-        }
-    },
-    {
-        path: "ListViewItemLayoutsGridNoHeightComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Grid without item height"
-        }
-    },
-    {
-        path: "ListViewItemLayoutsLinearComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Linear"
-        }
-    },
-    {
-        path: "ListViewItemLoadingComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Item Loading"
-        }
-    },
-    {
-        path: "ListViewItemLayoutsStaggeredComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Staggered"
-        }
-    },
-    {
-        path: "ListViewItemLayoutsRuntimeComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Change at runtime"
-        }
-    },
-    {
-        path: "ListViewItemReorderHandleComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Item Reorder with handle"
-        }
-    },
-    {
-        path: "ListViewItemSelectionMultipleComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Multiple Selection"
-        }
-    },
-    {
-        path: "ListViewItemSelectionProgrammaticComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Programmatic Selection"
-        }
-    },
-    {
-        path: "ListViewItemSeparatorComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Item separators"
-        }
-    },
-    {
-        path: "ListViewDynamicSizeAutoComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Auto with Variable Item Size"
-        }
-    },
-    {
-        path: "ListViewDynamicSizeManualComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Manual with Variable Item Size"
-        }
-    },
-    {
-        path: "ListViewFixedSizeAutoComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Auto with Fixed Item Size"
-        }
-    },
-    {
-        path: "ListViewFixedSizeAutoWithSmallSourceComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "With small source and pull to refresh"
-        }
-    },
-    {
-        path: "ListViewFixedSizeManualComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Manual with Fixed Item Size"
-        }
-    },
-    {
-        path: "ListViewScrollToIndexVerticalComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "In vertical direction"
-        }
-    },
-    {
-        path: "ListViewScrollToIndexHorizontalComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "In horizontal direction"
-        }
-    },
-    {
-        path: "ListViewScrollToIndexInitialComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Initially scrolled"
-        }
-    },
-    {
-        path: "ListViewScrollEventsComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Scroll Events"
-        }
-    },
-    {
-        path: "ListViewObservableArrayComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Observable Array"
-        }
-    },
-    {
-        path: "ListViewItemAnimationsComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Item Animations"
-        }
-    },
-    {
-        path: "ListViewSwipeActionsComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Getting Started"
-        }
-    },
-    {
-        path: "ListViewSwipeActionsMultipleComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Multiple actions"
-        }
-    },
-    {
-        path: "ListViewSwipeActionsThresholdsComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Animated thresholds"
-        }
-    },
-    {
-        path: "ListViewSwipeDisableComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Disable\\Enable"
-        }
-    },
-    {
-        path: "ListViewWithBigDataComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Initially load  10 000 items"
-        }
-    },
-    {
-        path: "ListviewHorizontalWithVariableItemWidthComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Horizontal with Variable item's width"
-        }
-    },
-    {
-        path: "ListViewGroupSwipeLoadPullComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Group, Swipe, Load and Pull"
-        }
-    },
-    {
-        path: "ListViewFirstVisibleIndexComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Get first visible index"
-        }
-    },
-    {
-        path: "ListviewCompTemplateComponent",
-        loadChildren: '~/app/examples/listview-examples.module#ListViewExamplesModule',
-        data: {
-            "title": "Custom Angular comp in template"
-        }
-    }
+const routes: Routes = [
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'forgotpassword', component: ForgotpasswordComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'resetpassword/:email', component: ResetpasswordComponent },
+  { path: 'instructions', component: InstructionsComponent },
+  { path: 'subscribe', component: SubscribeComponent },
+  { path: 'subscriptiondetail', component: SubscriptiondetailComponent },
+  { path: 'createleague', component: CreateleagueComponent },
+  { path: 'availableleague', component: AvailableleagueComponent },
+  { path: 'leaguedashboard', component: LeaguedashboardComponent },
+  { path: 'leaguedashboardhome', component: LeaguedashboardhomeComponent },
+  { path: 'schedules', component: SchedulesComponent },
+  { path: 'scores', component: ScoresComponent },
+  { path: 'notes', component: NotesComponent },
+  { path: 'viewplayers', component: ViewplayersComponent },
+  { path: 'invitefriend', component: InvitefriendComponent },
+  { path: 'sendemailtoplayer', component: SendemailtoplayerComponent },
+  { path: 'leagueinstructions', component: LeagueinstructionsComponent },
+  { path: 'leagueorganizerrules', component: LeagueorganizerrulesComponent },
+  { path: 'viewrulesleague', component: ViewrulesleagueComponent },
+  { path: 'theprocessrules', component: TheprocessrulesComponent },
+  { path: 'logisticsofapprules', component: LogisticsofapprulesComponent },
+  { path: 'quickmenurules', component: QuickmenurulesComponent },
+  { path: 'faq', component: FaqComponent },
+  { path: 'letsplaydashboard', component: LetsplaydashboardComponent },
+  { path: 'letsplaydashboardhome', component: LetsplaydashboardhomeComponent },
+  { path: 'makepick', component: MakepickComponent },
+  { path: 'makepick/:index', component: MakepickComponent },
+  { path: 'headtohead', component: HeadtoheadComponent },
+  { path: 'leaderboard', component: LeaderboardComponent },
+  { path: 'statistics', component: StatisticsComponent },
+  { path: 'viewrulesletsplay', component: ViewrulesletsplayComponent },
+  { path: 'faqletsplay', component: FaqletsplayComponent },
+  { path: 'viewnotice', component: ViewnoticeComponent },
+  {
+    path: 'availableleagueletsplay',
+    component: AvailableleagueletsplayComponent,
+  },
+  { path: 'joinleague', component: JoinleagueComponent },
+  { path: 'headtoheadsummary', component: HeadtoheadsummaryComponent },
+  {
+    path: 'headtoheadsummary/:weekId/:player1Id/:player2Id',
+    component: HeadtoheadsummaryComponent,
+  },
+  { path: 'makepicksummary/:weekId', component: MakepicksummaryComponent },
+  { path: 'contactleagueadmin', component: ContactleagueadminComponent },
+  {
+    path: 'contactofficepickempool',
+    component: ContactofficepickempoolComponent,
+  },
+  { path: 'invitenewplayer', component: InvitenewplayerComponent },
+  { path: 'playoff', component: PlayoffComponent },
+  { path: 'welcome', component: WelcomeComponent },
+  { path: 'chatdashboard', component: ChatdashboardComponent },
+  { path: 'chathome', component: ChathomeComponent },
+  { path: 'newchat', component: NewchatComponent },
+  { path: 'addchat', component: AddchatComponent },
 ];
 
 @NgModule({
-    imports: [NativeScriptRouterModule.forRoot(APP_ROUTES)],
-    exports: [NativeScriptRouterModule]
+  imports: [NativeScriptRouterModule.forRoot(routes)],
+  exports: [NativeScriptRouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
